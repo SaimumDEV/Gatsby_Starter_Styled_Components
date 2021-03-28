@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styles/media-query"
 
 export const Wrapper = styled.button`
   background: none;
@@ -20,7 +21,7 @@ export const Wrapper = styled.button`
     transition: 0.3s all;
   }
 
-  @media (max-width: 960px) {
+  ${media.down("md")} {
     text-align: left;
   }
 `

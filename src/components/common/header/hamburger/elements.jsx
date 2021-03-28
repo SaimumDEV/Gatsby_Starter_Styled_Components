@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import media from "styles/media-query"
 
 export const Wrapper = styled.div`
   z-index: 5;
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
   transition: left 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91);
   position: absolute;
 
-  @media (max-width: 960px) {
+  ${media.down("sm")} {
     display: block;
   }
 
@@ -19,12 +20,12 @@ export const Wrapper = styled.div`
       right: 18%;
       top: 1.4rem;
 
-      @media (max-width: 960px) {
+      ${media.down("sm")} {
         right: 35%;
         position: fixed;
       }
 
-      @media (max-width: 600px) {
+      ${media.down("xs")} {
         right: 66%;
       }
     `}
@@ -38,17 +39,17 @@ export const Bar = styled.div`
   transition: transform 500ms cubic-bezier(0.6, 0.05, 0.28, 0.91), opacity 500ms,
     box-shadow 250ms, background-color 500ms;
 
-  @media (max-width: 600px) {
+  ${media.down("xs")} {
     width: 1.6rem;
   }
 
-  ${({ top, sidebar, mode }) =>
+  ${({ top, sidebar, mode, theme }) =>
     top &&
     sidebar &&
     css`
       background-color: ${mode === "light"
-        ? `${({ theme }) => theme.colors.black}`
-        : `${({ theme }) => theme.colors.white}`};
+        ? `${theme.colors.black}`
+        : `${theme.colors.white}`};
       transform: translateY(8px) rotate(-135deg);
     `}
 
@@ -59,13 +60,13 @@ export const Bar = styled.div`
 		transform: scale(0);
 		`}
 
-	${({ bottom, sidebar, mode }) =>
+	${({ bottom, sidebar, mode, theme }) =>
     bottom &&
     sidebar &&
     css`
       background-color: ${mode === "light"
-        ? `${({ theme }) => theme.colors.black}`
-        : `${({ theme }) => theme.colors.white}`};
+        ? `${theme.colors.black}`
+        : `${theme.colors.white}`};
       transform: translateY(-6px) rotate(-45deg);
     `}
 `

@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components"
+import media from "styles/media-query"
 
 export const Wrapper = styled.div`
   a {
-    color: #000;
+    color: ${({ theme }) => theme.colors.black};
     font-size: 1rem;
     text-decoration: none;
 
-    @media (max-width: 960px) {
+    ${media.down("sm")} {
       color: ${({ mode, theme }) =>
         mode === "light" ? `${theme.colors.black}` : `${theme.colors.white}`};
     }
@@ -18,7 +19,7 @@ export const Wrapper = styled.div`
           align-items: center;
           display: flex;
 
-          @media (max-width: 960px) {
+          ${media.down("sm")} {
             display: none;
           }
 

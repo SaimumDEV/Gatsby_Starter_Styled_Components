@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import media from "styles/media-query"
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -17,17 +18,17 @@ export const Wrapper = styled.div`
 
   ${({ active }) =>
     active &&
-    `
-			width: 20%;
-			right: 0px;
-			opacity: 1;
+    css`
+      width: 20%;
+      right: 0px;
+      opacity: 1;
 
-			@media (max-width: 960px) {
-				width: 40%;
-			}
+      ${media.down("md")} {
+        width: 40%;
+      }
 
-			@media (max-width: 600px) {
-				width: 75%;
-			}
-	`}
+      ${media.down("xs")} {
+        width: 75%;
+      }
+    `}
 `
